@@ -3,29 +3,50 @@ body {
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
-	display: flex;
-	justify-content: center;
 
+	text-align: center;
 	background: url("https://img.freepik.com/foto-gratis/disposicion-escritorio-plano-espacio-copia_23-2148928165.jpg?w=826&t=st=1677069577~exp=1677070177~hmac=b3b4407bc37bdf87440d7095a65328a4025a767f9cef4d21a4de225fc5cec016") no-repeat center center fixed;
 	background-size: cover;
 	width: 100%;
-	height: auto;
 }
 
 #app {
-	padding: 20px 40px;
-}
-h1 {
-	width: 500px;
-	color: #181823;
-	text-align: center;
-	font-weight: bold;
+	padding: 30px 40px;
+	margin-top: 20px;
 }
 
-h2{
+#activity{
+	margin: 0 auto 30px;
+	font-size: 4rem;
+	font-family: "Ubuntu";
+	width: 400px;
+	color: #367E18;
+	font-weight: bold;
+	text-align: center;
+}
+
+#tittle {
+	margin: 0 auto;
+	width: 400px;
+	color: #181823;
+	font-weight: bold;
+	text-align: center;
+}
+
+#nolist{
 	color:#181823;
 	text-align:center;
 	font-weight: bold;
+}
+
+.newlist{
+	position: relative;
+	margin-top: 50px;
+}
+
+form{
+	margin: 20px auto;
+	text-align: center;
 }
 
 input[type='checkbox']{
