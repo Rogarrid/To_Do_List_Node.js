@@ -46,9 +46,11 @@ app.post("/", function(req, res){
 
 app.post("/deleteHome", function(req, res){
 	let idDelete = req.body.buttonDelete;
-	Item.findByIdAndRemove(idDelete).then ((err) => {
-		if (!err)
-			console.log("eliminado");
+	Item.findByIdAndRemove(idDelete).then ((del) => {
+		if (del)
+			console.log("Tarea de casa eliminada");
+		else
+			console.log("Error al eliminar la tarea de casa");
 	});
 	res.redirect("/");
 });
@@ -72,9 +74,11 @@ app.post("/compras", function(req, res){
 
 app.post("/deleteShop", function(req, res){
 	let idDelete = req.body.buttonDelete;
-	Item.findByIdAndRemove(idDelete).then ((err) => {
-		if (!err)
-			console.log("eliminado");
+	Item.findByIdAndRemove(idDelete).then ((del) => {
+		if (del)
+			console.log("Tarea de la compra eliminada");
+		else
+			console.log("Error al eliminar la tarea de compra");
 	});
 	res.redirect("/compras");
 });
@@ -98,9 +102,11 @@ app.post("/trabajo", function(req, res){
 
 app.post("/deleteWork", function(req, res){
 	let idDelete = req.body.buttonDelete;
-	Item.findByIdAndRemove(idDelete).then ((err) => {
-		if (!err)
-			console.log("eliminado");
+	Item.findByIdAndRemove(idDelete).then ((del) => {
+		if (del)
+			console.log("Tarea del trabajo eliminada");
+		else
+			console.log("Error al eliminar la tarea de trabajo");
 	});
 	res.redirect("/trabajo");
 });
@@ -125,9 +131,11 @@ app.post("/ocio", function(req, res){
 
 app.post("/deleteLeisure", function(req, res){
 	let idDelete = req.body.buttonDelete;
-	Item.findByIdAndRemove(idDelete).then ((err) => {
-		if (!err)
-			console.log("eliminado");
+	Item.findByIdAndRemove(idDelete).then ((del) => {
+		if (del)
+			console.log("Tarea de ocio eliminada");
+		else
+			console.log("Error al eliminar la tarea de ocio");
 	});
 	res.redirect("/ocio");
 });
