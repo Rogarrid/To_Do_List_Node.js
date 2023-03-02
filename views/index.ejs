@@ -30,7 +30,7 @@
 		<button type="submit" id="btn_add">Añadir</button>
 	</form>
 	<% for (var counter=0; counter<addTask.length; counter++) { %>
-		<div class="newList">
+		<div id="list" class="newList">
 			<draggable>
 			<transition-group name="slide" mode="out-in">
 				<div class="list" :class="{done: item.done}" :key="item">
@@ -38,7 +38,7 @@
 						<%= addTask[counter] %>
 						<input type="checkbox" autocomplete="off"/>
 					</label>
-					<button type= "submit" class="btn_del">&times;</button>
+					<button id="delete" type= "submit" class="btn_del">&times;</button>
 				</div>
 			</transition-group>
 		</draggable>

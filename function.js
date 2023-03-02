@@ -11,3 +11,4 @@ function date(){
 	let fullDate = today.toLocaleDateString("es-US",options);
 	return fullDate;
 }
+

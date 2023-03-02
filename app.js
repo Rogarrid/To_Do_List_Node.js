@@ -8,7 +8,6 @@ let addListShop = [];
 let addListWork = [];
 let addListLeisure = [];
 
-
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
@@ -17,7 +16,6 @@ app.get("/", function(req, res){
 	let dateComplet = functions();
 	res.render('index', {todaysDate: dateComplet, addTask: addListHome});
 });
-
 
 app.post("/", function(req, res){
 	item = req.body.newItem;
