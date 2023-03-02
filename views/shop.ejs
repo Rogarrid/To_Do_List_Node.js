@@ -23,26 +23,28 @@
 	</div>
   </nav>
 <div id="app">
-	<h1 id="activity">Compras</h1>
+	<h1 name="task" id="activity">Compras</h1>
 	<h3 id= "tittle">¿Qué vas hacer hoy <%= todaysDate %>?</h3>
 	<form id = "addList" @submit.prevent="addTodo" action="/compras" method="post">
 		<input type="text" name="newItem" placeholder="Nueva Tarea"/>
 		<button type="submit" id="btn_add">Añadir</button>
 	</form>
-	<% for (var counter=0; counter<addTask.length; counter++) { %>
-		<div class="newList">
-			<draggable>
-			<transition-group name="slide" mode="out-in">
-				<div class="list" :class="{done: item.done}" :key="item">
-					<label style="cursor:pointer">
-						<%= addTask[counter] %>
-						<input type="checkbox" autocomplete="off"/>
-					</label>
-					<button type= "submit" class="btn_del">&times;</button>
-				</div>
-			</transition-group>
-		</draggable>
-	</div>
+	<form action="/deleteShop" method="post">
+		<% for (var counter=0; counter<addTask.length; counter++) { %>
+			<div class="newList">
+				<draggable>
+				<transition-group name="slide" mode="out-in">
+					<div class="list" :class="{done: item.done}" :key="item">
+						<label style="cursor:pointer">
+							<%= addTask[counter].nameTask %>
+							<input type="checkbox" autocomplete="off"/>
+						</label>
+						<button class="btn_del" name="buttonDelete" value="<%=addTask[counter]._id%>">&times;</button>
+					</div>
+				</transition-group>
+			</draggable>
+		</div>
+	</form>
 	<% } %>
 	<% if (addTask.length == 0) { %>
 		<div>

@@ -1,4 +1,5 @@
-module.exports = date;
+//jshint esversion:6
+module.exports.date = date;
 
 function date(){
 	let today = new Date();
@@ -11,4 +12,5 @@ function date(){
 	let fullDate = today.toLocaleDateString("es-US",options);
 	return fullDate;
 }
+
 
