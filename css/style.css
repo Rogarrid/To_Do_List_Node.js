@@ -1,0 +1,219 @@
+@import url(//fonts.googleapis.com/earlyaccess/notosanstc.css);
+body {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+
+	text-align: center;
+	background: url("https://img.freepik.com/foto-gratis/disposicion-escritorio-plano-espacio-copia_23-2148928165.jpg?w=826&t=st=1677069577~exp=1677070177~hmac=b3b4407bc37bdf87440d7095a65328a4025a767f9cef4d21a4de225fc5cec016") no-repeat center center fixed;
+	background-size: cover;
+	width: 100%;
+}
+
+.btn-success{
+	margin-right: 30px;
+	width: 100px;
+	height: 50px;
+	background: #367E18;
+	color: white;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.nav-link{
+	color: #EEEEEE;
+	font-weight: bold;
+}
+
+#tittleIndex{
+	margin: 0 auto;
+	width: 450px;;
+	color: #181823;
+	font-weight: bold;
+	text-align: center;
+}
+
+#tittleIndex.nav-link:hover{
+	color: #ECECEC;
+}
+
+#app {
+	padding: 30px 40px;
+	margin-top: 20px;
+}
+
+#welcome{
+	margin: 0 auto 30px;
+	font-size: 3rem;
+	font-family: "Ubuntu";
+	width: 450px;
+	color: #367E18;
+	font-weight: bold;
+	text-align: center;
+}
+
+#activity{
+	margin: 0 auto 30px;
+	font-size: 4rem;
+	font-family: "Ubuntu";
+	width: 400px;
+	color: #367E18;
+	font-weight: bold;
+	text-align: center;
+}
+
+#tittle {
+	margin: 0 auto;
+	width: 400px;
+	color: #181823;
+	font-weight: bold;
+	text-align: center;
+}
+
+#nolist{
+	color:#181823;
+	text-align:center;
+	font-weight: bold;
+}
+
+form{
+	margin: 20px auto;
+	text-align: center;
+}
+
+input[type='checkbox']{
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+	display: none;
+}
+
+input[type="text"] {
+	outline: none !important;
+	padding: 10px 15px;
+	margin: 5px 0;
+	border: 0;
+	font-size: 1.2em;
+	border-radius: 0.4rem;
+}
+input[type="text"]:focus {
+	box-shadow: inset 0px 0px 0px 2px #367E18;
+}
+#btn_add {
+	cursor: pointer;
+	outline: none !important;
+	padding: 10px 15px;
+	margin: 0 10px;
+	background: #367E18;
+	border-radius: 6px;
+	border: none;
+	font-size: 1.2em;
+	color: white;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+	transition: all ease 0.3s;
+}
+#btn_add:hover {
+	filter: brightness(1.05);
+}
+
+.btn_del {
+	cursor: pointer;
+	outline: none !important;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: none;
+	font-size: 1.5em;
+	color: #367E18;
+	background: transparent;
+	transition: all 0.3s linear;
+}
+.btn_del:hover{
+	background: rgba(0,0,0,0.08);
+}
+
+draggable {
+	list-style-type: none;
+	margin: 60px 0;
+	padding: 0;
+}
+.list {
+	position: relative;
+	list-style-type: none;
+	font-size: 1.2em;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 15px;
+	margin: 10px;
+	border-radius: 8px;
+	box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.24);
+	background-color: #f1f1f1;
+	transition: all 0.2s;
+}
+.list:hover {
+	transform: scale(1.02);
+	box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.24);
+}
+.done {
+	filter: brightness(0.85);
+	transition: all 0.3s;
+}
+.done > label {
+	text-decoration: line-through;
+}
+
+/*Vue transition hook*/
+.slide-enter,
+.slide-leave-to {
+	opacity: 0;
+}
+.slide-enter-active {
+	-webkit-animation: slide-in 0.3s ease-out;
+	        animation: slide-in 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+.slide-leave-active {
+	-webkit-animation: slide-out 0.3s ease-out forwards;
+	        animation: slide-out 0.3s ease-out forwards;
+	transition: all 0.3s ease-out;
+	position: absolute;
+}
+.slide-move {
+	transition: transform 0.3s ease-out;
+}
+
+@-webkit-keyframes slide-in {
+	from {
+		transform: translateX(30px);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@keyframes slide-in {
+	from {
+		transform: translateX(30px);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
+@-webkit-keyframes slide-out {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(30px);
+	}
+}
+
+@keyframes slide-out {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(30px);
+	}
+}

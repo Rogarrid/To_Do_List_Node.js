@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>to-do List</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
-</head>
+<%- include("header") -%>
 <body>
 <!-- partial:index.partial.html -->
 <div id="app">
@@ -21,7 +12,7 @@
 	<button style="font-size: 18px; font-weight: bold;" onclick="location.href='/Ocio'" type="button" class="btn btn-success">Ocio</button>
 </div>
 <% for (var counter=0; counter<addTask.length; counter++) { %>
-<form action="/deleteIndex" method="post">
+	<form action="/deleteIndex" method="post">
 		<div style="margin-bottom: 20px;" id="list" class="newList">
 			<draggable>
 			<transition-group name="slide" mode="out-in">
@@ -40,8 +31,10 @@
 <% } %>
 <% if (addTask.length == 0) { %>
 	<div  style="margin-top:40px;">
-		<h6 id="nolist">😎 Ninguna tarea pendiente 😎</h6>
-		<h8>Elige una categoría y añade nuevas tareas</h8>
+		<h6 id="nolist"> Ninguna tarea pendiente. Elige una categoría y añade nuevas tareas </h6>
+	</div>
+	<div>
+
 	</div>
 <% } %>
 
