@@ -20,8 +20,8 @@
 	<button style="font-size: 18px; font-weight: bold;" onclick="location.href='/Trabajo'" type="button" class="btn btn-success">Trabajo</button>
 	<button style="font-size: 18px; font-weight: bold;" onclick="location.href='/Ocio'" type="button" class="btn btn-success">Ocio</button>
 </div>
+<% for (var counter=0; counter<addTask.length; counter++) { %>
 <form action="/deleteIndex" method="post">
-	<% for (var counter=0; counter<addTask.length; counter++) { %>
 		<div style="margin-bottom: 20px;" id="list" class="newList">
 			<draggable>
 			<transition-group name="slide" mode="out-in">
