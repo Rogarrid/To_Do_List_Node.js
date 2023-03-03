@@ -1,12 +1,13 @@
+require('dotenv').config(); //variables de entorno
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const functions = require(__dirname + "/function.js");
 
 const app = express();
+const connectMongoDB = 'mongodb+srv://' + process.env.LIST_USER + process.env.LIST_PASS + '@cluster0.rqplqdq.mongodb.net/todolistDB';
 
-
-mongoose.connect('mongodb://localhost:27017/todolistDB', { useNewUrlParser: true });
+mongoose.connect(connectMongoDB, { useNewUrlParser: true });
 
 const itemSchema = new mongoose.Schema ({
 	nameTask: {
