@@ -22,7 +22,7 @@
 </div>
 <form action="/deleteIndex" method="post">
 	<% for (var counter=0; counter<addTask.length; counter++) { %>
-		<div id="list" class="newList">
+		<div style="margin-bottom: 20px;" id="list" class="newList">
 			<draggable>
 			<transition-group name="slide" mode="out-in">
 				<div style="width: 80%; margin: 0 auto;" class="list" :class="{done: item.done}" :key="item">
