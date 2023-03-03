@@ -44,7 +44,7 @@ app.get("/:customList", function(req, res){
 	});
 });
 
-app.post("/:customList", function(req, res){
+app.post("/:customList", async function(req, res){
 
 	let NameListAdd = req.params.customList;
 	if (NameListAdd != "delete" && NameListAdd != "deleteIndex") {
@@ -52,11 +52,11 @@ app.post("/:customList", function(req, res){
 			nameTask: req.body.newItem,
 			category: NameListAdd
 		});
-		task.save();
+		await task.save();
 		res.redirect("/" + NameListAdd);
 	} else if (NameListAdd == "deleteIndex"){
 		let idDelete = req.body.buttonDelete;
-		Item.findByIdAndRemove(idDelete).then ((del) => {
+		await Item.findByIdAndRemove(idDelete).then ((del) => {
 			if (del)
 				console.log("Tarea eliminada");
 			else
@@ -66,7 +66,7 @@ app.post("/:customList", function(req, res){
 	}else {
 		let nameDelete = req.body.listDelete;
 		let idDelete = req.body.buttonDelete;
-		Item.findByIdAndRemove(idDelete).then ((del) => {
+		await Item.findByIdAndRemove(idDelete).then ((del) => {
 			if (del)
 				console.log("Tarea eliminada");
 			else
