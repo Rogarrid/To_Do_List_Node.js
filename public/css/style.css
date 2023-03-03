@@ -10,13 +10,45 @@ body {
 	width: 100%;
 }
 
-.delete {
-	display: none;
+.btn-success{
+	margin-right: 30px;
+	width: 100px;
+	height: 50px;
+	background: #367E18;
+	color: white;
+	box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+
+.nav-link{
+	color: #EEEEEE;
+	font-weight: bold;
+}
+
+#tittleIndex{
+	margin: 0 auto;
+	width: 450px;;
+	color: #181823;
+	font-weight: bold;
+	text-align: center;
+}
+
+#tittleIndex.nav-link:hover{
+	color: #ECECEC;
 }
 
 #app {
 	padding: 30px 40px;
 	margin-top: 20px;
+}
+
+#welcome{
+	margin: 0 auto 30px;
+	font-size: 3rem;
+	font-family: "Ubuntu";
+	width: 450px;
+	color: #367E18;
+	font-weight: bold;
+	text-align: center;
 }
 
 #activity{

@@ -29,115 +29,50 @@ app.use(express.static("public"));
 
 app.get("/", function(req, res){
 	let dateComplet = functions.date();
-	Item.find({category: 'home'}).then ((foundItems) => {
-
+	Item.find({}).then ((foundItems) => {
 		res.render('index', {todaysDate: dateComplet, addTask: foundItems});
 	});
 });
 
-app.post("/", function(req, res){
-	const task = new Item({
-		nameTask: req.body.newItem,
-		category: "home"
-	});
-	task.save();
-	res.redirect("/");
-});
-
-app.post("/deleteHome", function(req, res){
-	let idDelete = req.body.buttonDelete;
-	Item.findByIdAndRemove(idDelete).then ((del) => {
-		if (del)
-			console.log("Tarea de casa eliminada");
-		else
-			console.log("Error al eliminar la tarea de casa");
-	});
-	res.redirect("/");
-});
-
-app.get("/compras", function(req, res){
+app.get("/:customList", function(req, res){
+	let newNameList = req.params.customList;
 	let dateComplet = functions.date();
-	Item.find({category: 'shop'}).then ((foundItems) => {
+	Item.find({category: newNameList}).then ((foundItems) => {
 
-		res.render('shop', {todaysDate: dateComplet, addTask: foundItems});
+		res.render('list', {nameList: newNameList, todaysDate: dateComplet, addTask: foundItems});
 	});
 });
 
-app.post("/compras", function(req, res){
-	const task = new Item({
-		nameTask: req.body.newItem,
-		category: "shop"
-	});
-	task.save();
-	res.redirect("/compras");
-});
+app.post("/:customList", function(req, res){
 
-app.post("/deleteShop", function(req, res){
-	let idDelete = req.body.buttonDelete;
-	Item.findByIdAndRemove(idDelete).then ((del) => {
-		if (del)
-			console.log("Tarea de la compra eliminada");
-		else
-			console.log("Error al eliminar la tarea de compra");
-	});
-	res.redirect("/compras");
-});
-
-app.get("/trabajo", function(req, res){
-	let dateComplet = functions.date();
-	Item.find({category: 'work'}).then ((foundItems) => {
-
-		res.render('work', {todaysDate: dateComplet, addTask: foundItems});
-	});
-});
-
-app.post("/trabajo", function(req, res){
-	const task = new Item({
-		nameTask: req.body.newItem,
-		category: "work"
-	});
-	task.save();
-	res.redirect("/trabajo");
-});
-
-app.post("/deleteWork", function(req, res){
-	let idDelete = req.body.buttonDelete;
-	Item.findByIdAndRemove(idDelete).then ((del) => {
-		if (del)
-			console.log("Tarea del trabajo eliminada");
-		else
-			console.log("Error al eliminar la tarea de trabajo");
-	});
-	res.redirect("/trabajo");
-});
-
-app.get("/ocio", function(req, res){
-
-	let dateComplet = functions.date();
-	Item.find({category: 'leisure'}).then ((foundItems) => {
-
-		res.render('leisure', {todaysDate: dateComplet, addTask: foundItems});
-	});
-});
-
-app.post("/ocio", function(req, res){
-	const task = new Item({
-		nameTask: req.body.newItem,
-		category: "leisure"
-	});
-	task.save();
-	res.redirect("/ocio");
-});
-
-app.post("/deleteLeisure", function(req, res){
-	let idDelete = req.body.buttonDelete;
-	Item.findByIdAndRemove(idDelete).then ((del) => {
-		if (del)
-			console.log("Tarea de ocio eliminada");
-		else
-			console.log("Error al eliminar la tarea de ocio");
-	});
-	res.redirect("/ocio");
+	let NameListAdd = req.params.customList;
+	if (NameListAdd != "delete" && NameListAdd != "deleteIndex") {
+		const task = new Item({
+			nameTask: req.body.newItem,
+			category: NameListAdd
+		});
+		task.save();
+		res.redirect("/" + NameListAdd);
+	} else if (NameListAdd == "deleteIndex"){
+		let idDelete = req.body.buttonDelete;
+		Item.findByIdAndRemove(idDelete).then ((del) => {
+			if (del)
+				console.log("Tarea eliminada");
+			else
+				console.log("Error al eliminar la tarea");
+		});
+		res.redirect("/");
+	}else {
+		let nameDelete = req.body.listDelete;
+		let idDelete = req.body.buttonDelete;
+		Item.findByIdAndRemove(idDelete).then ((del) => {
+			if (del)
+				console.log("Tarea eliminada");
+			else
+				console.log("Error al eliminar la tarea");
+		});
+		res.redirect("/" + nameDelete);
+	}
 });
 
 app.listen(3000, function()
