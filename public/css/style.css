@@ -254,10 +254,6 @@ draggable {
 		font-size: 1.8rem;
 	}
 
-	#nolist{
-		font-size: 1.6rem;
-	}
-
 	#activity{
 		font-size: 6rem;
 		width: 600px;
@@ -295,7 +291,7 @@ draggable {
 	}
 
 	#nolist{
-		font-size: 2rem;
+		font-size: 1.8rem;
 		margin-top: 40px;
 	}
 }
