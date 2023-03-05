@@ -15,20 +15,20 @@
 	<h3 id= "tittleIndex"> <%= todaysDate %></h3>
 </div>
 <div id="List" style="text-align: center;">
-	<button style="font-size: 18px; font-weight: bold;" onclick="location.href='/Hogar'" type="button" class="btn btn-success">Hogar</button>
-	<button style="font-size: 18px; font-weight: bold;" onclick="location.href='/Compras'" type="button" class="btn btn-success">Compras</button>
-	<button style="font-size: 18px; font-weight: bold;" onclick="location.href='/Trabajo'" type="button" class="btn btn-success">Trabajo</button>
-	<button style="font-size: 18px; font-weight: bold;" onclick="location.href='/Ocio'" type="button" class="btn btn-success">Ocio</button>
+	<button onclick="location.href='/Hogar'" type="button" class="btn btn-success">Hogar</button>
+	<button onclick="location.href='/Compras'" type="button" class="btn btn-success">Compras</button>
+	<button onclick="location.href='/Trabajo'" type="button" class="btn btn-success">Trabajo</button>
+	<button onclick="location.href='/Ocio'" type="button" class="btn btn-success">Ocio</button>
 </div>
 <% for (var counter=0; counter<addTask.length; counter++) { %>
-	<form action="/deleteIndex" method="post">
+	<form id= "deleteIndex" action="/deleteIndex" method="post">
 		<div style="margin-bottom: 20px;" id="list" class="newList">
 			<draggable>
 			<transition-group name="slide" mode="out-in">
 				<div style="width: 80%; margin: 0 auto;" class="list" :class="{done: item.done}" :key="item">
 					<label style="cursor:pointer; width: 100%; text-align: left;">
-						<h4 style="font-weight: bold;" ><%= addTask[counter].nameTask %></h4>
-						<h6 style="margin-bottom: 0;">Lista de <%= addTask[counter].category %></h6>
+						<h4 class="numberTask"><%= addTask[counter].nameTask %></h4>
+						<h6 class= "categoryTask">Lista de <%= addTask[counter].category %></h6>
 					</label>
 					<button class="btn_del" name="buttonDelete" value="<%=addTask[counter]._id%>">&times;</button>
 					<input type="hidden" name="listDelete" value="<%=addTask[counter].category%>">
