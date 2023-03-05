@@ -38,7 +38,7 @@
 	<h1 name="task" id="activity"><%= nameList %></h1>
 	<h3 id= "tittle">¿Qué vas hacer hoy <%= todaysDate %>?</h3>
 	<form id = "addList" @submit.prevent="addTodo" action="/<%= nameList %>" method="post">
-		<input type="text" name="newItem" placeholder="Nueva Tarea"/>
+		<input id="boxTask" type="text" name="newItem" placeholder="Nueva Tarea"/>
 		<button type="submit" id="btn_add">Añadir</button>
 	</form>
 	<% for (var counter=0; counter<addTask.length; counter++) { %>
@@ -47,7 +47,7 @@
 				<draggable>
 				<transition-group name="slide" mode="out-in">
 					<div class="list" :class="{done: item.done}" :key="item">
-						<label style="cursor:pointer">
+						<label id= "taskDelete"style="cursor:pointer">
 							<%= addTask[counter].nameTask %>
 						</label>
 						<button class="btn_del" name="buttonDelete" value="<%=addTask[counter]._id%>">&times;</button>
